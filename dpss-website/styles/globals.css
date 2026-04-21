@@ -8,18 +8,83 @@
     padding: 0;
     box-sizing: border-box;
   }
-  
+
   html {
     scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
     background-color: #ffffff;
-    color: #475569; /* Body Text color from config */
+    color: #475569;
     line-height: 1.6;
   }
 
   h1, h2, h3, h4, h5, h6 {
-    color: #0f172a; /* Dark Text color from config */
+    color: #0f172a;
+  }
+
+  ::selection {
+    background-color: #ffc400;
+    color: #0f172a;
+  }
+
+  :focus-visible {
+    outline: 2px solid #ffc400;
+    outline-offset: 3px;
+    border-radius: 4px;
+  }
+
+  /* Hide scrollbar for cross-browser snap containers */
+  .snap-x {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .snap-x::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+@layer utilities {
+  /* Bento card shimmer on hover */
+  .bento-shimmer::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+      120deg,
+      transparent 30%,
+      rgba(255, 255, 255, 0.06) 50%,
+      transparent 70%
+    );
+    background-size: 200% 100%;
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+  .bento-shimmer:hover::before {
+    opacity: 1;
+    animation: shimmer 1.2s ease infinite;
+  }
+
+  @keyframes shimmer {
+    0% { background-position: -200% 0; }
+    100% { background-position: 200% 0; }
+  }
+
+  /* Gradient text animation */
+  .animate-gradient-x {
+    background-size: 200% 200%;
+    animation: gradient-x 4s ease infinite;
+  }
+
+  @keyframes gradient-x {
+    0%, 100% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+  }
+
+  /* Duration utilities for transition */
+  .duration-400 {
+    transition-duration: 400ms;
   }
 }
