@@ -1,0 +1,10 @@
+/*
+!.gitignore
+!/dpss-website/
+!/images/
+dpss-website/node_modules/
+.DS_Store
+.next/
+dist/
+build/
+.env*
