@@ -8,12 +8,6 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.dpsssiddipet.com' }],
-        destination: 'https://dpsssiddipet.com/:path*',
-        permanent: true,
-      },
-      {
         source: '/principal.php',
         destination: '/about',
         permanent: true,
