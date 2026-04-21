@@ -3,66 +3,76 @@ import { createClient } from '@supabase/supabase-js';
 
 export async function POST(request: Request) {
   try {
-    // Initialize inside the request to prevent build-time static evaluation errors when ENV is MISSING
     const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
-    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY || process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
-    
-    if (!supabaseUrl || !supabaseKey) {
-      return NextResponse.json({ error: 'Database connection not configured' }, { status: 500 });
-    }
-    
-    const { dob, mobile } = await request.json();
+    const supabaseKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
+    if (!supabaseUrl || !supabaseKey) {
+      console.error('Missing Supabase environment variables');
+      return NextResponse.json({ error: 'Server configuration error.' }, { status: 500 });
+    }
+
+    const body = await request.json();
+    const { dob, mobile } = body;
+
+    // Basic input validation
     if (!dob || !mobile) {
       return NextResponse.json(
-        { error: 'Date of Birth and Mobile Number are required' },
+        { error: 'Date of Birth and Mobile Number are required.' },
         { status: 400 }
       );
     }
 
-    // Initialize Supabase admin client here safely
-    const supabase = createClient(
-      process.env.NEXT_PUBLIC_SUPABASE_URL!,
-      process.env.SUPABASE_SERVICE_ROLE_KEY!
-    );
+    // Sanitize inputs — reject suspiciously long values
+    if (String(dob).length > 50 || String(mobile).length > 15) {
+      return NextResponse.json({ error: 'Invalid input format.' }, { status: 400 });
+    }
 
-    // Fetch all records to do a robust JavaScript filter to avoid quoting and trailing space bugs
-    const { data: allRecords, error } = await supabase
+    const supabase = createClient(supabaseUrl, supabaseKey);
+
+    const cleanMobile = String(mobile).trim().replace(/\s+/g, '');
+    const cleanDob = String(dob).trim();
+
+    // FIX: Filter by DOB at DB level first to reduce memory usage,
+    // then verify mobile in JS (safe since this is server-side only)
+    const { data: records, error } = await supabase
       .from('scholarship_applicants')
-      .select('*');
+      .select('*')
+      .ilike('DOB', cleanDob);
 
-    if (error || !allRecords) {
-      console.error('Supabase lookup error or no unmatched data:', error);
+    if (error) {
+      // Log full error server-side only — never expose to client
+      console.error('Supabase scholarship lookup error:', error);
+      return NextResponse.json({ error: 'Database query failed.' }, { status: 500 });
+    }
+
+    if (!records || records.length === 0) {
       return NextResponse.json(
-        { error: 'Database query failed or is empty.', details: error },
-        { status: 500 }
+        { error: 'No matching verified record found. Ensure entered details exactly match your application.' },
+        { status: 404 }
       );
     }
 
-    const cleanInputMobile = mobile.trim();
-    const cleanInputDob = dob.trim();
-
-    // Find exact match ignoring spaces and straight/smart quote variations
-    const student = allRecords.find((row) => {
-      const rowMobile = String(row["FATHER'S CONTACT NUMBER"] || row["FATHER’S CONTACT NUMBER"] || "").trim();
-      const rowDob = String(row["DOB"] || "").trim();
-      
-      return rowMobile === cleanInputMobile && rowDob === cleanInputDob;
+    // Secondary verification: match mobile number in JS
+    const student = records.find((row) => {
+      const rowMobile = String(
+        row["FATHER'S CONTACT NUMBER"] ||
+        row["MOTHER'S CONTACT NUMBER"] || ''
+      ).trim().replace(/\s+/g, '');
+      return rowMobile === cleanMobile;
     });
 
     if (!student) {
       return NextResponse.json(
-        { error: 'No matching verified record found. Ensure entered details exactly match your application, or await admin verification.' },
+        { error: 'No matching verified record found. Ensure entered details exactly match your application.' },
         { status: 404 }
       );
     }
 
     return NextResponse.json(student);
+
   } catch (error) {
-    console.error('Internal API error:', error);
-    return NextResponse.json(
-      { error: 'Internal server error while verifying details.' },
-      { status: 500 }
-    );
+    console.error('Internal scholarship API error:', error);
+    // Never expose internal error details to client
+    return NextResponse.json({ error: 'Internal server error.' }, { status: 500 });
   }
 }
