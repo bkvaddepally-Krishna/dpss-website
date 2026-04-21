@@ -1,8 +1,10 @@
 "use client";
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
-import { CheckCircle2, Download, Share2, Printer, X } from 'lucide-react';
+import { CheckCircle2, Download, Share2, Printer, X, Loader2 } from 'lucide-react';
+import jsPDF from 'jspdf';
+import html2canvas from 'html2canvas';
 
 interface SuccessModalProps {
   registrationId: string;
@@ -11,10 +13,37 @@ interface SuccessModalProps {
 }
 
 export default function SuccessModal({ registrationId, email, onClose }: SuccessModalProps) {
+  const receiptRef = useRef<HTMLDivElement>(null);
+  const [isGenerating, setIsGenerating] = React.useState(false);
   
   const handleShareWhatsApp = () => {
-    const text = `Hello! I have successfully registered for admission at DPSS Siddipet. My Registration ID is: ${registrationId}`;
+    const text = `*Registration Successful!* \n\nI have successfully registered for admission at *Delhi Public Secondary School - Siddipet*. \n\n*Registration ID:* ${registrationId} \n*Website:* https://dpsssiddipet.com \n\n_Quality Education for a Brighter Future._`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
+  };
+
+  const handleDownloadPDF = async () => {
+    if (!receiptRef.current) return;
+    setIsGenerating(true);
+    try {
+      const element = receiptRef.current;
+      const canvas = await html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        backgroundColor: '#ffffff'
+      });
+      const imgData = canvas.toDataURL('image/png');
+      const pdf = new jsPDF('p', 'mm', 'a4');
+      const imgProps = pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+      
+      pdf.addImage(imgData, 'PNG', 0, 10, pdfWidth, pdfHeight);
+      pdf.save(`DPSS_Admission_${registrationId}.pdf`);
+    } catch (error) {
+      console.error('PDF Generation Error:', error);
+    } finally {
+      setIsGenerating(false);
+    }
   };
 
   const handlePrint = () => {
@@ -22,14 +51,14 @@ export default function SuccessModal({ registrationId, email, onClose }: Success
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden fade-in-up">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in no-print">
+      <div className="bg-white rounded-2xl shadow-2xl w-full max-w-lg overflow-hidden fade-in-up printable-receipt" ref={receiptRef}>
         
         {/* Header styling */}
         <div className="bg-green-50 p-8 text-center relative border-b border-green-100">
           <button 
             onClick={onClose}
-            className="absolute top-4 right-4 text-green-700 hover:text-green-900 bg-green-100/50 p-2 rounded-full transition-colors"
+            className="absolute top-4 right-4 text-green-700 hover:text-green-900 bg-green-100/50 p-2 rounded-full transition-colors no-print"
           >
             <X size={20} />
           </button>
@@ -57,12 +86,14 @@ export default function SuccessModal({ registrationId, email, onClose }: Success
           )}
 
           {/* Action Buttons */}
-          <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border-light">
+          <div className="grid grid-cols-2 gap-3 pt-4 border-t border-border-light no-print">
              <button 
-              onClick={() => alert('PDF downloading... (Implementation placeholder)')}
-              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gray-50 hover:bg-gray-100 text-typography-dark font-medium transition-colors border border-border-light"
+              onClick={handleDownloadPDF}
+              disabled={isGenerating}
+              className="flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-gray-50 hover:bg-gray-100 text-typography-dark font-medium transition-colors border border-border-light disabled:opacity-50"
             >
-              <Download size={18} className="text-primary"/> Download PDF
+              {isGenerating ? <Loader2 size={18} className="animate-spin" /> : <Download size={18} className="text-primary"/>}
+              Download PDF
             </button>
             <button 
               onClick={handleShareWhatsApp}
@@ -78,7 +109,7 @@ export default function SuccessModal({ registrationId, email, onClose }: Success
             </button>
           </div>
           
-          <div className="pt-2">
+          <div className="pt-2 no-print">
             <Link 
               href="/"
               className="block w-full text-center py-4 rounded-xl bg-primary text-white font-semibold hover:bg-primary-hover transition-colors"

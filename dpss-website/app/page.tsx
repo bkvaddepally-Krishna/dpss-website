@@ -153,7 +153,7 @@ const BENTO_ITEMS = [
         </div>
         <div className="flex gap-3 mt-6">
           <span className="px-3 py-1.5 bg-white/10 rounded-full text-white/80 text-xs font-semibold">CBSE Affiliated</span>
-          <span className="px-3 py-1.5 bg-accent/20 rounded-full text-accent text-xs font-semibold">Est. 2019</span>
+          <span className="px-3 py-1.5 bg-accent/20 rounded-full text-accent text-xs font-semibold">Est. 2022</span>
         </div>
       </div>
     ),
@@ -303,60 +303,64 @@ export default function Home() {
 
         {/* Hero Content */}
         <motion.div className="absolute inset-0 z-20 flex items-center" style={{ opacity: heroOpacity }}>
-          <div className="max-w-7xl mx-auto px-6 w-full">
+          <div className="max-w-7xl mx-auto px-6 w-full mt-24 md:mt-20 lg:mt-16">
             <motion.div
               className="max-w-2xl"
               initial="hidden"
               animate="show"
               variants={staggerContainer}
             >
-              <motion.span variants={fadeUp}
-                className="inline-flex items-center gap-2 px-5 py-2 bg-accent/20 backdrop-blur-md border border-accent/30 rounded-full text-accent font-bold text-xs md:text-sm tracking-wider mb-6">
-                <motion.span
-                  className="w-2 h-2 rounded-full bg-accent"
-                  animate={{ scale: [1, 1.4, 1], opacity: [1, 0.5, 1] }}
-                  transition={{ repeat: Infinity, duration: 1.5 }}
-                />
-                Admissions Open 2026-27
-              </motion.span>
-
               <motion.div variants={fadeUp} className="flex gap-5 items-start mb-6">
                 <motion.div className="w-1.5 bg-accent rounded-full flex-shrink-0 mt-1 shadow-[0_0_20px_rgba(255,196,0,0.6)]"
                   initial={{ height: 0 }}
                   animate={{ height: 110 }}
                   transition={{ duration: 0.9, delay: 0.6, ease: 'easeOut' }} />
                 <h1 className="font-serif text-5xl md:text-8xl font-black text-white leading-[1.05] tracking-tight">
-                  Education That <br />
+                  Admissions Open <br />
                   <motion.span
                     className="text-transparent bg-clip-text bg-gradient-to-r from-accent via-yellow-300 to-accent"
                     animate={{ backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'] }}
                     transition={{ duration: 5, repeat: Infinity, ease: 'linear' }}
                     style={{ backgroundSize: '200% 200%' }}
                   >
-                    Builds Leaders
+                    2026–27
                   </motion.span>
                 </h1>
               </motion.div>
 
               <motion.p variants={fadeUp}
                 className="text-white/80 font-medium text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-                Empowering students with a blend of <span className="text-accent font-bold">tradition</span> and <span className="text-accent font-bold">technology</span> in the heart of Siddipet.
+                CBSE School in Siddipet focused on academic excellence, discipline, and all-round development. <br className="hidden md:block" />
+                <span className="text-accent/90 font-bold">Limited seats available for the upcoming academic year.</span>
               </motion.p>
 
-              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4">
+              <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-10">
                 <motion.div whileHover={{ scale: 1.06, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400 }}>
                   <Link href="/admissions"
                     className="block px-8 py-4 bg-accent text-typography-dark rounded-xl font-bold text-base shadow-[0_10px_40px_rgba(255,196,0,0.4)] hover:bg-yellow-300 transition-colors text-center">
                     Apply Now
                   </Link>
                 </motion.div>
-                <motion.button whileHover={{ scale: 1.06, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400 }}
-                  className="px-8 py-4 border-2 border-white/60 text-white rounded-xl font-semibold text-base hover:bg-white hover:text-typography-dark transition-all flex items-center justify-center gap-2 backdrop-blur-sm">
-                  <span className="w-9 h-9 rounded-full bg-white/20 flex items-center justify-center">
-                    <span className="border-t-[6px] border-t-transparent border-b-[6px] border-b-transparent border-l-[10px] border-l-white ml-0.5" />
-                  </span>
-                  Watch Our Story
-                </motion.button>
+                <motion.div whileHover={{ scale: 1.06, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400 }}>
+                  <Link href="/#explore-campus"
+                    className="block px-8 py-4 border-2 border-white/60 text-white rounded-xl font-semibold text-base hover:bg-white hover:text-typography-dark transition-all text-center backdrop-blur-sm">
+                    Explore Campus
+                  </Link>
+                </motion.div>
+              </motion.div>
+
+              {/* Trust Micro-signals */}
+              <motion.div variants={fadeUp} className="flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-8 mt-auto">
+                {[
+                  { label: "CBSE Affiliated", icon: <CheckCircle2 size={16} className="text-accent" /> },
+                  { label: "600+ Students", icon: <Users size={16} className="text-accent" /> },
+                  { label: "Experienced Faculty", icon: <GraduationCap size={16} className="text-accent" /> },
+                ].map((item, i) => (
+                  <div key={i} className="flex items-center gap-2.5 text-white/60 text-xs font-bold uppercase tracking-[0.15em]">
+                    <span className="shrink-0">{item.icon}</span>
+                    {item.label}
+                  </div>
+                ))}
               </motion.div>
             </motion.div>
           </div>
@@ -450,6 +454,58 @@ export default function Home() {
       </section>
 
 
+      {/* ══════════════ SCHOLARSHIP HIGHLIGHT ══════════════ */}
+      <section className="bg-primary py-20 px-6 relative overflow-hidden">
+        {/* Subtle background glow */}
+        <div className="absolute inset-0 pointer-events-none opacity-10">
+          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+        </div>
+        
+        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+          <div className="max-w-2xl text-center lg:text-left">
+            <motion.span 
+              initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+              className="inline-block px-4 py-1.5 bg-accent/20 text-accent font-bold text-xs tracking-widest uppercase rounded-full mb-6 border border-accent/30"
+            >
+              Admissions Open 2026
+            </motion.span>
+            <motion.h2 
+              initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+              className="font-serif text-4xl md:text-5xl font-bold text-white mb-6"
+            >
+              Merit Scholarship Test 2026
+            </motion.h2>
+            <motion.p 
+              initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+              className="text-white/80 text-lg font-medium leading-relaxed"
+            >
+              Secure up to 100% scholarship for meritorious students. <br className="hidden md:block" /> Limited seats available for the upcoming session.
+            </motion.p>
+          </div>
+          
+          <motion.div 
+            initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+            className="flex flex-col sm:flex-row gap-4 shrink-0"
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/scholarship"
+                className="block px-8 py-4 bg-accent text-typography-dark rounded-xl font-bold text-base hover:bg-yellow-300 transition-all shadow-lg text-center"
+              >
+                Register Now
+              </Link>
+            </motion.div>
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <Link href="/scholarship"
+                className="block px-8 py-4 border-2 border-white/30 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all text-center"
+              >
+                Get Hall Ticket
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+
       {/* ══════════════ WELCOME ══════════════ */}
       <section className="bg-white py-28 px-6 overflow-hidden">
         <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
@@ -459,7 +515,7 @@ export default function Home() {
             initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}>
 
             <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.25em] text-accent uppercase">
-              Est. 2019 &bull; Siddipet, Telangana
+              Est. 2022 &bull; Siddipet, Telangana
             </motion.p>
 
             <motion.h2 variants={fadeUp} className="font-serif text-5xl md:text-7xl font-bold text-typography-dark leading-tight">
@@ -469,13 +525,13 @@ export default function Home() {
             </motion.h2>
 
             <motion.p variants={fadeUp} className="text-typography-body text-lg leading-[1.9] max-w-xl">
-              For over five years, DPSS has been more than just a school — a living, breathing
+              Established in 2022, DPSS has quickly become more than just a school — a living, breathing
               community where curiosity is rewarded, character is shaped, and every child is
               empowered to dream bigger.
             </motion.p>
 
             <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-bold text-typography-dark">
-              {['5+ Years', '600+ Alumni', '25+ Facilities'].map((s, i, arr) => (
+              {['3+ Years', '600+ Alumni', '25+ Facilities'].map((s, i, arr) => (
                 <React.Fragment key={s}>
                   <motion.span
                     className="hover:text-primary transition-colors cursor-default"
@@ -488,13 +544,13 @@ export default function Home() {
 
             <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 pt-4">
               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
-                <Link href="/about"
+                  <Link href="/about"
                   className="block px-7 py-3.5 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary hover:text-white transition-all duration-300 text-center">
                   Our Story
                 </Link>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
-                <Link href="/admissions"
+               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
+                <Link href="/facilities"
                   className="block px-7 py-3.5 bg-primary text-white rounded-xl font-bold hover:bg-primary-hover transition-all duration-300 shadow-lg text-center">
                   View Facilities
                 </Link>
@@ -520,7 +576,7 @@ export default function Home() {
               transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
               viewport={{ once: true }}
               className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-3 border border-gray-100 z-10 hidden md:flex">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-lg shrink-0">5+</div>
+              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-lg shrink-0">3+</div>
               <div>
                 <div className="text-xs text-typography-body">Years of</div>
                 <div className="font-bold text-typography-dark">Excellence</div>
@@ -581,10 +637,66 @@ export default function Home() {
 
           <motion.div className="text-center mt-12"
             initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}>
-            <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }}>
-              <Link href="/admissions"
+           <motion.div whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.97 }}>
+              <Link href="/facilities"
                 className="inline-flex items-center gap-2 px-8 py-3.5 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary hover:text-white transition-all duration-300">
                 View All Facilities <ArrowRight size={18} />
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+
+      {/* ══════════════ EXPLORE CAMPUS ══════════════ */}
+      <section id="explore-campus" className="bg-white py-24 px-6 overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-16 space-y-4"
+            initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}
+          >
+            <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.25em] text-accent uppercase">Life at DPSS</motion.p>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl font-bold text-typography-dark">
+              Explore Our Campus
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-typography-body max-w-2xl mx-auto text-lg font-medium">
+              Take a closer look at our classrooms, labs, and the vibrant life of our students.
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16"
+            initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}
+          >
+            {[
+              { src: '/images/slider1.jpg', alt: 'Classrooms' },
+              { src: '/images/slider2.jpg', alt: 'Laboratories' },
+              { src: '/images/slider3.jpg', alt: 'Activities' },
+            ].map((img, i) => (
+              <motion.div 
+                key={i}
+                variants={fadeUp}
+                whileHover={{ scale: 1.03 }}
+                className="relative aspect-[4/3] rounded-3xl overflow-hidden shadow-xl group border-4 border-white"
+              >
+                <Image src={img.src} alt={img.alt} fill className="object-cover transition-transform duration-700 group-hover:scale-110" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                <div className="absolute bottom-6 left-6 text-white font-bold text-lg translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-300">
+                  {img.alt}
+                </div>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            className="text-center"
+            initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+              <Link href="/gallery"
+                className="flex items-center gap-2 px-10 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary-hover transition-all shadow-lg"
+              >
+                View Full Gallery
               </Link>
             </motion.div>
           </motion.div>
@@ -625,6 +737,81 @@ export default function Home() {
       </section>
 
 
+      {/* ══════════════ RESULTS & ACHIEVEMENTS ══════════════ */}
+      <section className="bg-white py-24 px-6 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-16 space-y-4"
+            initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}
+          >
+            <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.25em] text-primary uppercase">Academic Excellence</motion.p>
+            <motion.h2 variants={fadeUp} className="font-serif text-4xl md:text-5xl font-bold text-typography-dark">
+              Proven Academic Excellence
+            </motion.h2>
+            <motion.p variants={fadeUp} className="text-typography-body max-w-2xl mx-auto text-lg font-medium">
+              Our students consistently achieve strong academic results and overall development.
+            </motion.p>
+          </motion.div>
+
+          <motion.div 
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
+            initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}
+          >
+            {[
+              { 
+                title: "100% Pass Rate", 
+                desc: "All students successfully passed CBSE examinations with flying colors.", 
+                icon: <CheckCircle2 className="text-green-600" size={32} />
+              },
+              { 
+                title: "Top Performers", 
+                desc: "Many students scoring above 90% across all core subjects and disciplines.", 
+                icon: <Star className="text-yellow-500" size={32} />
+              },
+              { 
+                title: "Olympiad Winners", 
+                desc: "Consistent winners in various district and state-level competitions.", 
+                icon: <Trophy className="text-accent" size={32} />
+              },
+              { 
+                title: "Holistic Success", 
+                desc: "Recognized excellence in sports, arts, and creative extracurriculars.", 
+                icon: <Award className="text-primary" size={32} />
+              },
+            ].map((item, i) => (
+              <motion.div 
+                key={i}
+                variants={fadeUp}
+                whileHover={{ y: -8, boxShadow: '0 20px 40px rgba(0,0,0,0.08)' }}
+                className="bg-surface-soft p-8 rounded-3xl border border-gray-100 transition-all text-center"
+              >
+                <div className="flex justify-center mb-6">
+                  <div className="bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm">
+                    {item.icon}
+                  </div>
+                </div>
+                <h3 className="font-bold text-typography-dark text-xl mb-3">{item.title}</h3>
+                <p className="text-typography-body text-sm leading-relaxed">{item.desc}</p>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <motion.div 
+            className="text-center mt-14"
+            initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+              <Link href="/academics"
+                className="flex items-center gap-2 px-8 py-3.5 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary hover:text-white transition-all shadow-md"
+              >
+                View Detailed Results <ArrowRight size={18} />
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+
       {/* ══════════════ STATS ══════════════ */}
       <section className="py-24 px-6 relative overflow-hidden bg-primary border-t border-white/10">
         <div className="absolute inset-0 pointer-events-none"
@@ -633,7 +820,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto relative z-10">
           <motion.div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-0 md:divide-x md:divide-white/10"
             initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}>
-            <StatCard end={5} suffix="+" label="Years of Legacy" />
+            <StatCard end={3} suffix="+" label="Years of Legacy" />
             <StatCard end={25} suffix="+" label="Modern Facilities" />
             <StatCard end={600} suffix="+" label="Happy Alumni" />
             <StatCard end={100} suffix="%" label="Parent Trust" />
@@ -690,6 +877,69 @@ export default function Home() {
       </section>
 
 
+       {/* ══════════════ ADMISSION PROCESS ══════════════ */}
+      <section className="bg-white py-24 px-6 border-t border-gray-50">
+        <div className="max-w-7xl mx-auto">
+          <motion.div 
+            className="text-center mb-16 space-y-4"
+            initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}
+          >
+            <h2 className="font-serif text-4xl md:text-5xl font-bold text-typography-dark">
+              Simple Admission Process
+            </h2>
+            <p className="text-typography-body max-w-lg mx-auto">
+              Our streamlined process ensures a smooth transition for your child.
+            </p>
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+            {[
+              { 
+                step: "01", 
+                title: "Apply Online", 
+                desc: "Fill the admission form with basic student details on our digital portal." 
+              },
+              { 
+                step: "02", 
+                title: "Interaction", 
+                desc: "Student interaction and basic assessment to understand their academic needs." 
+              },
+              { 
+                step: "03", 
+                title: "Confirmation", 
+                desc: "Receive admission confirmation and complete the enrollment process." 
+              }
+            ].map((step, i) => (
+              <motion.div 
+                key={i}
+                initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+                className="relative p-8 rounded-3xl bg-surface-soft border border-gray-100 group hover:border-primary/20 transition-all"
+              >
+                <div className="text-5xl font-serif font-black text-primary/10 mb-6 group-hover:text-primary/20 transition-colors">
+                  {step.step}
+                </div>
+                <h3 className="text-xl font-bold text-typography-dark mb-4">{step.title}</h3>
+                <p className="text-typography-body text-sm leading-relaxed">{step.desc}</p>
+              </motion.div>
+            ))}
+          </div>
+
+          <motion.div 
+            className="text-center"
+            initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
+          >
+            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="inline-block">
+              <Link href="/admissions"
+                className="flex items-center gap-2 px-8 py-4 bg-primary text-white rounded-xl font-bold hover:bg-primary-hover transition-all shadow-lg"
+              >
+                Apply Now For 2026-27
+              </Link>
+            </motion.div>
+          </motion.div>
+        </div>
+      </section>
+
+
       {/* ══════════════ TESTIMONIALS ══════════════ */}
       <section className="bg-[#f9fafb] py-28 px-6">
         <div className="max-w-7xl mx-auto">
@@ -702,9 +952,9 @@ export default function Home() {
           <motion.div className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-4 md:grid md:grid-cols-3 md:overflow-visible"
             initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}>
             {[
-              { name: 'Priya Sharma', cls: 'Mother – Class 5', quote: 'Best decision for my child. The teachers genuinely care and the holistic focus is phenomenal. We couldn\'t be happier.' },
-              { name: 'Rajesh Kumar', cls: 'Father – Class 8', quote: 'Excellent infrastructure and sports facilities. I am truly a proud parent. The lush green campus creates a perfect learning environment.' },
-              { name: 'Anita Desai', cls: 'Mother – Class 3', quote: 'The new computer lab is amazing. My son loves coding and looks forward to school every single morning — that says it all.' },
+              { name: 'Parent of Grade 5 Student, Siddipet', cls: 'Class 5', quote: 'Choosing DPSS was the best decision for our daughter. The teachers are very supportive and my child has improved a lot in both studies and confidence.' },
+              { name: 'Parent of Grade 8 Student, Siddipet', cls: 'Class 8', quote: 'The infrastructure and sports facilities are excellent. My son is always excited about school, especially the green campus and science labs.' },
+              { name: 'Parent of Grade 3 Student, Siddipet', cls: 'Class 3', quote: 'I am impressed by the personal attention each child receives. The combination of academics and activities like coding has helped my child stay engaged and happy.' },
             ].map(({ name, cls, quote }, i) => (
               <motion.div key={i} variants={fadeUp}
                 whileHover={{ y: -8, boxShadow: '0 20px 50px rgba(0,0,0,0.12)', transition: { type: 'spring', stiffness: 400, damping: 20 } }}

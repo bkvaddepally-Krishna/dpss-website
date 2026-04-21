@@ -82,6 +82,13 @@ export default function MultiStepForm() {
         throw new Error(result.error || 'Submission failed');
       }
 
+      if (typeof window !== "undefined" && window.gtag) {
+        window.gtag("event", "generate_lead", {
+          event_category: "Admissions",
+          event_label: "Admission Form Submitted",
+        });
+      }
+
       setSuccessData({
         id: result.registrationId,
         email: data.fatherEmail || data.motherEmail || null

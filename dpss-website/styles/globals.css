@@ -88,3 +88,40 @@
     transition-duration: 400ms;
   }
 }
+
+/* ================= PRINT STYLES ================= */
+@media print {
+  /* Hide everything by default */
+  body * {
+    visibility: hidden;
+  }
+
+  /* Show only the modal content and its children */
+  .printable-receipt,
+  .printable-receipt * {
+    visibility: visible;
+  }
+
+  /* Position the receipt at the top of the page */
+  .printable-receipt {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: white !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 !important;
+  }
+
+  /* Hide buttons during print */
+  .no-print {
+    display: none !important;
+  }
+
+  /* Ensure colors and backgrounds print */
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}

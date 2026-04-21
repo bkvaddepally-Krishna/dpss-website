@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import AboutClient from './AboutClient';
 
 export const metadata: Metadata = {
-  title: 'About Us | DPSS Siddipet',
-  description: 'Learn about Delhi Public Secondary School Siddipet. Message from the Chairman and Principal, Our Vision, Core Values, and Holistic Education.',
+  title: 'About Our School',
+  description: 'Learn about Delhi Public Secondary School in Siddipet. Explore our vision, core values, and commitment to holistic CBSE education.',
 };
 
 export default function AboutPage() {

@@ -10,8 +10,23 @@ import { schoolInfo } from '@/lib/constants';
 
 const navLinks = [
   { name: 'Home', path: '/' },
-  { name: 'About', path: '/about' },
-  { name: 'Academics', path: '/academics' },
+  { 
+    name: 'About', 
+    path: '/about',
+    subLinks: [
+      { name: 'About Us', path: '/about' },
+      { name: 'Student Life', path: '/student-life' }
+    ]
+  },
+  { 
+    name: 'Academics', 
+    path: '/academics',
+    subLinks: [
+      { name: 'Overview', path: '/academics' },
+      { name: 'Facilities', path: '/facilities' },
+      { name: 'Achievements', path: '/academics/achievements' }
+    ]
+  },
   { name: 'Admissions', path: '/admissions' },
   { name: 'Scholarship', path: '/scholarship' },
   { name: 'Gallery', path: '/gallery' },
@@ -75,22 +90,44 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <nav className="hidden xl:flex items-center gap-7">
+          <nav className="hidden xl:flex items-center gap-5">
             {navLinks.map((link, i) => {
-              const active = pathname === link.path;
+              const active = pathname === link.path || (link.subLinks && link.subLinks.some(s => pathname === s.path));
               return (
                 <motion.div key={link.name}
+                  className="relative group py-6"
                   initial={{ opacity: 0, y: -10 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.05 * i, duration: 0.4 }}>
                   <Link href={link.path}
-                    className={`relative text-sm font-semibold tracking-wide group transition-colors duration-200 ${
+                    className={`relative text-sm font-semibold tracking-wide inline-flex items-center gap-1.5 transition-colors duration-200 ${
                       transparent ? 'text-white hover:text-accent' : 'text-typography-dark hover:text-primary'
                     } ${active ? '!text-accent' : ''}`}
                   >
                     {link.name}
+                    {link.subLinks && (
+                      <svg className="w-3.5 h-3.5 opacity-80 group-hover:rotate-180 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    )}
                     <span className={`absolute -bottom-1 left-0 h-0.5 bg-accent transition-all duration-300 ${active ? 'w-full' : 'w-0 group-hover:w-full'}`} />
                   </Link>
+
+                  {/* Dropdown Menu */}
+                  {link.subLinks && (
+                    <div className="absolute top-[85%] left-0 w-48 bg-white shadow-xl rounded-xl border border-gray-100 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 transform translate-y-2 group-hover:translate-y-0 overflow-hidden z-50">
+                      <div className="py-2">
+                        {link.subLinks.map(subLink => (
+                          <Link key={subLink.name} href={subLink.path} 
+                            className={`block px-5 py-3 text-sm font-medium transition-colors ${
+                              pathname === subLink.path ? 'text-primary bg-emerald-50' : 'text-typography-dark hover:text-primary hover:bg-gray-50'
+                            }`}>
+                            {subLink.name}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )}
                 </motion.div>
               );
             })}
@@ -156,23 +193,38 @@ export default function Navbar() {
                 <X size={22} />
               </motion.button>
             </div>
-            <nav className="flex flex-col px-6 py-6 gap-1 flex-grow overflow-y-auto">
-              {navLinks.map((link, i) => (
-                <motion.div key={link.name}
-                  initial={{ opacity: 0, x: 20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.05 * i, duration: 0.3 }}>
-                  <Link href={link.path}
-                    className={`block py-4 border-b border-gray-50 text-base font-semibold transition-colors ${pathname === link.path ? 'text-primary' : 'text-typography-dark hover:text-primary'}`}>
-                    {link.name}
-                  </Link>
-                </motion.div>
-              ))}
+            <nav className="flex flex-col px-6 py-4 gap-1 flex-grow overflow-y-auto">
+              {navLinks.map((link, i) => {
+                const active = pathname === link.path || (link.subLinks && link.subLinks.some(s => pathname === s.path));
+                return (
+                  <motion.div key={link.name}
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.05 * i, duration: 0.3 }}>
+                    <Link href={link.path}
+                      className={`block py-4 border-b border-gray-50 text-base font-semibold transition-colors ${active ? 'text-primary' : 'text-typography-dark hover:text-primary'}`}>
+                      {link.name}
+                    </Link>
+                    {link.subLinks && (
+                      <div className="flex flex-col pl-4 border-b border-gray-50 pb-2">
+                        {link.subLinks.map(subLink => (
+                          <Link key={subLink.name} href={subLink.path}
+                            className={`py-3 text-sm font-medium transition-colors ${pathname === subLink.path ? 'text-accent' : 'text-gray-500 hover:text-primary'}`}>
+                            › {subLink.name}
+                          </Link>
+                        ))}
+                      </div>
+                    )}
+                  </motion.div>
+                );
+              })}
             </nav>
-            <div className="p-6 border-t border-gray-100 space-y-3">
-              <a href={`tel:${schoolInfo.phone}`} className="flex items-center gap-2 text-sm text-typography-body">
-                <Phone size={16} className="text-primary shrink-0" /> {schoolInfo.phone}
-              </a>
+            <div className="p-6 border-t border-gray-100 space-y-4">
+              <div className="flex items-center justify-center">
+                <a href={`tel:${schoolInfo.phone}`} className="flex items-center gap-2 text-sm text-typography-dark font-medium">
+                  <Phone size={16} className="text-primary shrink-0" /> {schoolInfo.phone}
+                </a>
+              </div>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                 <Link href="/admissions"
                   className="flex items-center justify-center w-full py-4 bg-accent text-typography-dark rounded-xl font-bold text-base hover:bg-yellow-300 transition-colors shadow-md">

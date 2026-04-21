@@ -6,7 +6,7 @@ export const fadeUp: Variants = {
   show: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.7, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.7, ease: 'easeOut' },
   },
 };
 
@@ -20,7 +20,7 @@ export const fadeLeft: Variants = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.8, ease: 'easeOut' },
   },
 };
 
@@ -29,7 +29,7 @@ export const fadeRight: Variants = {
   show: {
     opacity: 1,
     x: 0,
-    transition: { duration: 0.8, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.8, ease: 'easeOut' },
   },
 };
 
@@ -38,7 +38,7 @@ export const scaleIn: Variants = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.6, ease: [0.34, 1.56, 0.64, 1] },
+    transition: { duration: 0.6, ease: 'easeOut' },
   },
 };
 
@@ -47,7 +47,7 @@ export const scaleInFast: Variants = {
   show: {
     opacity: 1,
     scale: 1,
-    transition: { duration: 0.45, ease: [0.34, 1.56, 0.64, 1] },
+    transition: { duration: 0.45, ease: 'easeOut' },
   },
 };
 
@@ -58,7 +58,7 @@ export const bentoCard: Variants = {
     opacity: 1,
     y: 0,
     scale: 1,
-    transition: { duration: 0.6, ease: [0.25, 0.46, 0.45, 0.94] },
+    transition: { duration: 0.6, ease: 'easeOut' },
   },
 };
 

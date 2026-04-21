@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import AcademicsClient from './AcademicsClient';
 
 export const metadata: Metadata = {
-  title: 'Academics | DPSS Siddipet',
-  description: 'Explore the academic excellence, digital infrastructure, and holistic curriculum designed for the future leaders at Delhi Public Secondary School Siddipet.',
+  title: 'Academics & Curriculum',
+  description: 'Explore the CBSE academic curriculum, digital infrastructure, and holistic learning approach at DPSS Siddipet.',
 };
 
 export default function AcademicsPage() {
