@@ -13,7 +13,7 @@ const formSchema = z.object({
   className: z.string().min(1, "Please select a class"),
   dob: z.string().min(1, "Date of Birth is required"),
   email: z.string().email("Invalid email address").optional().or(z.literal('')),
-  isDpssStudent: z.boolean().default(false),
+  isDpssStudent: z.boolean().optional(),
   
   fatherName: z.string().min(2, "Father's name is required"),
   motherName: z.string().optional(),
