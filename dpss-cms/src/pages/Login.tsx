@@ -22,9 +22,14 @@ export default function Login() {
     e.preventDefault();
     setError(null);
 
-    const email = USERNAME_MAP[username.trim().toLowerCase()];
-    if (!email) {
-      setError('Unknown username. Please check your credentials.');
+    const trimmedValue = username.trim().toLowerCase();
+    // Resolve email: if they typed 'vipul', get 'vipul@dpss.cms'
+    // If they typed 'vipul@dpss.cms', use it directly IF it's in our map
+    const email = USERNAME_MAP[trimmedValue] || 
+                 (trimmedValue.includes('@dpss.cms') ? trimmedValue : null);
+    
+    if (!email || !Object.values(USERNAME_MAP).includes(email)) {
+      setError('Unknown username. Please use your assigned username (e.g., "vipul").');
       return;
     }
 

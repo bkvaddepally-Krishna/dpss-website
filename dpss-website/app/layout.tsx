@@ -18,8 +18,38 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  title: 'DPSS Siddipet – Premier CBSE School | Admissions 2026-27',
-  description: 'Delhi Public Secondary School in Siddipet, Telangana. CBSE affiliated with 25+ world-class facilities. Admissions open for 2026-27. Nurturing future leaders.',
+  title: {
+    default: 'DPSS Siddipet – Premier CBSE School | Admissions 2026-27',
+    template: '%s | DPSS Siddipet'
+  },
+  description: 'Delhi Public Secondary School in Siddipet, Telangana. CBSE affiliated with 25+ world-class facilities. Admissions open for 2026-27. Nurturing the leaders of tomorrow.',
+  keywords: ['DPSS Siddipet', 'Best School in Siddipet', 'CBSE Schools Telangana', 'Delhi Public Secondary School', 'Siddipet Admission 2026', 'High School Siddipet'],
+  authors: [{ name: 'DPSS Siddipet' }],
+  creator: 'DPSS Siddipet',
+  publisher: 'Delhi Public Secondary School',
+  robots: 'index, follow',
+  openGraph: {
+    type: 'website',
+    locale: 'en_IN',
+    url: 'https://dpsssiddipet.com',
+    siteName: 'DPSS Siddipet',
+    title: 'DPSS Siddipet – Premier CBSE School | Admissions 2026-27',
+    description: 'Premier CBSE education in Siddipet with international standards and 25+ world-class facilities.',
+    images: [
+      {
+        url: '/images/logo.png',
+        width: 1200,
+        height: 630,
+        alt: 'DPSS Siddipet Logo',
+      },
+    ],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DPSS Siddipet – Elite CBSE Education',
+    description: 'Admissions open for 2026-27 at Siddipet\'s finest institution.',
+    images: ['/images/logo.png'],
+  },
 };
 
 export const viewport = {

@@ -55,8 +55,8 @@ export async function POST(request: Request) {
     // Secondary verification: match mobile number in JS
     const student = records.find((row) => {
       const rowMobile = String(
-        row["FATHER'S CONTACT NUMBER"] ||
-        row["MOTHER'S CONTACT NUMBER"] || ''
+        row["FATHER’S CONTACT NUMBER"] ||
+        row["MOTHER’S CONTACT NUMBER"] || ''
       ).trim().replace(/\s+/g, '');
       return rowMobile === cleanMobile;
     });

@@ -3,7 +3,7 @@ import type { Session } from '@supabase/supabase-js';
 import { supabase } from '../lib/supabase';
 import {
   LayoutDashboard, MessageSquare, GraduationCap, FileText,
-  LogOut, ChevronRight, Menu, X,
+  LogOut, ChevronRight, Menu, X, Users
 } from 'lucide-react';
 import { useState } from 'react';
 
@@ -11,6 +11,7 @@ const NAV = [
   { to: '/dashboard',  label: 'Dashboard',          icon: LayoutDashboard },
   { to: '/enquiries',  label: 'Contact Enquiries',   icon: MessageSquare   },
   { to: '/admissions', label: 'Admissions',          icon: FileText        },
+  { to: '/scholarship', label: 'Scholarship Apps',  icon: Users           },
   { to: '/results',    label: 'Scholarship Results', icon: GraduationCap   },
 ];
 

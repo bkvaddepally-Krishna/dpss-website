@@ -9,6 +9,7 @@ import Enquiries from './pages/Enquiries';
 import Admissions from './pages/Admissions';
 import Results from './pages/Results';
 import EnterResult from './pages/EnterResult';
+import ScholarshipApplicants from './pages/ScholarshipApplicants';
 
 export default function App() {
   const [session, setSession] = useState<Session | null>(null);
@@ -46,6 +47,7 @@ export default function App() {
           <Route path="/admissions"  element={<Admissions />} />
           <Route path="/results"     element={<Results />} />
           <Route path="/results/enter" element={<EnterResult />} />
+          <Route path="/scholarship" element={<ScholarshipApplicants />} />
         </Route>
         <Route path="*" element={<Navigate to={session ? '/dashboard' : '/'} replace />} />
       </Routes>
