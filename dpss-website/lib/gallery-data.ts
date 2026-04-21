@@ -27,7 +27,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
     slug: 'annual-day',
     title: 'Annual Day',
     description: 'Celebrating talent, performances, and student creativity with a grand end-of-year showcase.',
-    coverImage: '/gallery/annual-day/1.jpg',
+    coverImage: '/gallery/annual-day/1.JPG',
     date: '2025',
     badge: 'Cultural',
     context: [
@@ -35,7 +35,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       'Parents attended and participated actively',
       'Focus on confidence, creativity, and stage exposure'
     ],
-    images: Array.from({ length: 20 }, (_, i) => `/gallery/annual-day/${i + 1}.jpg`),
+    images: Array.from({ length: 11 }, (_, i) => `/gallery/annual-day/${i + 1}.JPG`),
   },
   {
     slug: 'bharatiya-kalamahotsav',
@@ -49,7 +49,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       'Encouraging deep appreciation for classical music and dance',
       'Fostering cultural pride through student-led performances'
     ],
-    images: Array.from({ length: 20 }, (_, i) => `/gallery/bharatiya-kalamahotsav/${i + 1}.jpg`),
+    images: Array.from({ length: 1 }, (_, i) => `/gallery/bharatiya-kalamahotsav/${i + 1}.jpg`),
   },
   {
     slug: 'dussehra-bathukamma',
@@ -63,13 +63,13 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       'Traditional attire and local customs highlighted',
       'Community bonding among students and faculty'
     ],
-    images: Array.from({ length: 20 }, (_, i) => `/gallery/dussehra-bathukamma/${i + 1}.jpg`),
+    images: Array.from({ length: 5 }, (_, i) => `/gallery/dussehra-bathukamma/${i + 1}.jpg`),
   },
   {
     slug: 'graduation',
     title: 'Graduation Ceremony',
     description: 'Marking a proud milestone as our students step into their next chapter with confidence.',
-    coverImage: '/gallery/graduation/1.jpg',
+    coverImage: '/gallery/graduation/1.JPG',
     date: '2025',
     badge: 'Milestone',
     context: [
@@ -77,7 +77,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       'Ceremony of transition into higher grades',
       'Inspiring speeches and presentation of certificates'
     ],
-    images: Array.from({ length: 20 }, (_, i) => `/gallery/graduation/${i + 1}.jpg`),
+    images: Array.from({ length: 7 }, (_, i) => `/gallery/graduation/${i + 1}.JPG`),
   },
   {
     slug: 'mok-parliament',
@@ -91,7 +91,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       'Developing public speaking and critical thinking skills',
       'Understanding democracy and civic responsibilities'
     ],
-    images: Array.from({ length: 20 }, (_, i) => `/gallery/mok-parliament/${i + 1}.jpg`),
+    images: Array.from({ length: 2 }, (_, i) => `/gallery/mok-parliament/${i + 1}.jpg`),
   },
   {
     slug: 'sankranthi-fest',
@@ -105,7 +105,7 @@ export const GALLERY_EVENTS: GalleryEvent[] = [
       'Learning the agricultural significance of the festival',
       'Traditional programs fostering a cultural connection'
     ],
-    images: Array.from({ length: 20 }, (_, i) => `/gallery/sankranthi-fest/${i + 1}.jpg`),
+    images: Array.from({ length: 4 }, (_, i) => `/gallery/sankranthi-fest/${i + 1}.jpg`),
   },
 ];
 
