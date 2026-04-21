@@ -54,3 +54,15 @@ ALTER TABLE public.admissions           DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.contact_inquiries    DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.scholarship_results  DISABLE ROW LEVEL SECURITY;
 ALTER TABLE public.scholarship_applicants DISABLE ROW LEVEL SECURITY;
+
+-- ═══════════════════════════════════════════════════════════════
+-- MIGRATION: Add is_published column to scholarship_results
+-- Run this in Supabase SQL Editor if the table already exists
+-- ═══════════════════════════════════════════════════════════════
+ALTER TABLE public.scholarship_results
+  ADD COLUMN IF NOT EXISTS is_published boolean NOT NULL DEFAULT false;
+
+-- Index for faster public lookups (only published results)
+CREATE INDEX IF NOT EXISTS idx_results_published
+  ON public.scholarship_results (hall_ticket_no, is_published)
+  WHERE is_published = true;

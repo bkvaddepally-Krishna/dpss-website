@@ -92,22 +92,32 @@ export default function EnterResult() {
     const enteredBy = session?.user.email?.split('@')[0] ?? 'unknown';
 
     const row = {
-      hall_ticket_no:        student!['Hall Ticket Number'],
-      student_name:          student!['STUDENT NAME'],
-      class:                 student!['CLASS'],
-      english_marks:         parseInt(english),
-      science_marks:         parseInt(science),
-      social_marks:          parseInt(social),
-      maths_marks:           parseInt(maths),
-      gk_marks:              isHighClass() ? parseInt(gk) : null,
-      total_marks:           total,
-      max_marks:             maxTotal,
+      hall_ticket_no:         student!['Hall Ticket Number'],
+      student_name:           student!['STUDENT NAME'],
+      class:                  student!['CLASS'],
+      english_marks:          parseInt(english),
+      science_marks:          parseInt(science),
+      social_marks:           parseInt(social),
+      maths_marks:            parseInt(maths),
+      gk_marks:               isHighClass() ? parseInt(gk) : null,
+      total_marks:            total,
+      max_marks:              maxTotal,
       scholarship_percentage: scholarship,
-      remarks:               remarks.trim() || null,
-      entered_by:            enteredBy,
+      remarks:                remarks.trim() || null,
+      entered_by:             enteredBy,
+      // Marks update does NOT flip is_published — only admin can publish explicitly
+      // is_published is intentionally omitted here so upsert preserves existing value
     };
 
-    const { error } = await supabaseAdmin.from('scholarship_results').upsert([row], { onConflict: 'hall_ticket_no' });
+    // For new records, we need to set is_published = false explicitly
+    const { data: existing } = await supabaseAdmin
+      .from('scholarship_results')
+      .select('id, is_published')
+      .eq('hall_ticket_no', student!['Hall Ticket Number'])
+      .maybeSingle();
+
+    const upsertRow = existing ? row : { ...row, is_published: false };
+    const { error } = await supabaseAdmin.from('scholarship_results').upsert([upsertRow], { onConflict: 'hall_ticket_no' });
     setSaving(false);
     if (error) { setSaveErr(`Save failed: ${error.message}`); return; }
     setSaved(true);
@@ -129,12 +139,15 @@ export default function EnterResult() {
   if (saved) {
     return (
       <div className="flex items-center justify-center min-h-screen">
-        <div className="text-center animate-fade-in">
+        <div className="text-center animate-fade-in max-w-sm mx-auto px-6">
           <div className="w-20 h-20 bg-green-500/15 rounded-full flex items-center justify-center mx-auto mb-4">
             <CheckCircle size={40} className="text-green-400" />
           </div>
-          <p className="text-xl font-bold text-white">Result Saved!</p>
-          <p className="text-gray-400 text-sm mt-2">Redirecting to results list...</p>
+          <p className="text-xl font-bold text-white">Result Saved as DRAFT!</p>
+          <p className="text-gray-400 text-sm mt-2 leading-relaxed">
+            The result has been saved privately. Go to the <span className="text-amber-400 font-semibold">Results List</span> and click <span className="text-green-400 font-semibold">"Publish"</span> to make it visible to the student.
+          </p>
+          <p className="text-gray-500 text-xs mt-3">Redirecting to results list...</p>
         </div>
       </div>
     );
