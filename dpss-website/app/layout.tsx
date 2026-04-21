@@ -21,6 +21,10 @@ const playfairDisplay = Playfair_Display({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dpsssiddipet.com'),
+  alternates: {
+    canonical: '/',
+  },
   title: {
     default: 'Delhi Secondary School - Siddipet',
     template: '%s | Delhi Secondary School - Siddipet'
