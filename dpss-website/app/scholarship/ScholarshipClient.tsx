@@ -283,7 +283,7 @@ export default function ScholarshipClient() {
                 </motion.button>
 
                 <motion.button 
-                   whileHover={{ scale: 1.05, bg: "rgba(255,255,255,0.15)" }}
+                   whileHover={{ scale: 1.05, backgroundColor: "rgba(255,255,255,0.15)" }}
                    whileTap={{ scale: 0.98 }}
                    onClick={() => {
                      setIsApplying(false);
