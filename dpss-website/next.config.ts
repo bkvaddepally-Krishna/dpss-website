@@ -32,6 +32,26 @@ const nextConfig: NextConfig = {
         destination: '/admissions',
         permanent: true,
       },
+      {
+        source: '/contact.php',
+        destination: '/contact',
+        permanent: true,
+      },
+      {
+        source: '/founder.php',
+        destination: '/about',
+        permanent: true,
+      },
+      {
+        source: '/enrollmentGuide.php',
+        destination: '/admissions',
+        permanent: true,
+      },
+      {
+        source: '/preprimary.php',
+        destination: '/academics',
+        permanent: true,
+      },
     ];
   },
 };
