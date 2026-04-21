@@ -242,6 +242,14 @@ const BENTO_ITEMS = [
           <p className="text-typography-dark/70 text-sm font-semibold mt-1">2026–27 · Limited Seats</p>
         </div>
         <Link href="/admissions"
+          onClick={() => {
+            if (typeof window !== "undefined" && window.gtag) {
+              window.gtag("event", "apply_now_click", {
+                event_category: "engagement",
+                event_label: "Apply Now Button",
+              });
+            }
+          }}
           className="flex items-center gap-2 px-6 py-3 bg-typography-dark text-white rounded-xl font-bold text-sm hover:bg-primary transition-colors duration-300 shrink-0">
           Apply Now <ArrowRight size={16} />
         </Link>
@@ -337,6 +345,14 @@ export default function Home() {
               <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 mb-10">
                 <motion.div whileHover={{ scale: 1.06, y: -2 }} whileTap={{ scale: 0.97 }} transition={{ type: 'spring', stiffness: 400 }}>
                   <Link href="/admissions"
+                    onClick={() => {
+                      if (typeof window !== "undefined" && window.gtag) {
+                        window.gtag("event", "apply_now_click", {
+                          event_category: "engagement",
+                          event_label: "Apply Now Button",
+                        });
+                      }
+                    }}
                     className="block px-8 py-4 bg-accent text-typography-dark rounded-xl font-bold text-base shadow-[0_10px_40px_rgba(255,196,0,0.4)] hover:bg-yellow-300 transition-colors text-center">
                     Apply Now
                   </Link>

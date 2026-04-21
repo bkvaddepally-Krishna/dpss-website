@@ -142,6 +142,14 @@ export default function Navbar() {
             </a>
             <motion.div whileHover={{ scale: 1.06 }} whileTap={{ scale: 0.95 }}>
               <Link href="/admissions"
+                onClick={() => {
+                  if (typeof window !== "undefined" && window.gtag) {
+                    window.gtag("event", "apply_now_click", {
+                      event_category: "engagement",
+                      event_label: "Apply Now Button",
+                    });
+                  }
+                }}
                 className="px-6 py-2.5 bg-accent text-typography-dark rounded-lg font-bold text-sm hover:bg-yellow-300 transition-colors shadow-sm">
                 Apply Now
               </Link>
@@ -227,6 +235,14 @@ export default function Navbar() {
               </div>
               <motion.div whileHover={{ scale: 1.03 }} whileTap={{ scale: 0.97 }}>
                 <Link href="/admissions"
+                  onClick={() => {
+                    if (typeof window !== "undefined" && window.gtag) {
+                      window.gtag("event", "apply_now_click", {
+                        event_category: "engagement",
+                        event_label: "Apply Now Button",
+                      });
+                    }
+                  }}
                   className="flex items-center justify-center w-full py-4 bg-accent text-typography-dark rounded-xl font-bold text-base hover:bg-yellow-300 transition-colors shadow-md">
                   Apply Now 2026-27
                 </Link>
