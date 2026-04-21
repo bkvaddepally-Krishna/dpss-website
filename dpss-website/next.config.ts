@@ -58,6 +58,11 @@ const nextConfig: NextConfig = {
         destination: '/academics',
         permanent: true,
       },
+      {
+        source: '/HallTicketSystem/index.php',
+        destination: '/scholarship',
+        permanent: true,
+      },
     ];
   },
 };
