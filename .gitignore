@@ -2,9 +2,11 @@
 !.gitignore
 !/dpss-website/
 !/images/
+!/dpss-cms/
+!/supabase_setup.sql
 dpss-website/node_modules/
+dpss-cms/node_modules/
+dpss-cms/dist/
 .DS_Store
 .next/
-dist/
-build/
 .env*
