@@ -104,7 +104,7 @@ const FACILITIES = [
   { name: 'Smart Classrooms', desc: 'AI-powered interactive learning boards', icon: <Wifi size={28} />, color: 'from-blue-500/20 to-blue-600/10' },
   { name: 'Science Labs', desc: 'Fully equipped with modern apparatus', icon: <FlaskConical size={28} />, color: 'from-purple-500/20 to-purple-600/10' },
   { name: 'Rich Library', desc: '5,000+ books, e-resources & reading zones', icon: <Library size={28} />, color: 'from-amber-500/20 to-amber-600/10' },
-  { name: 'CBSE Curriculum', desc: 'Nationally recognised, future-aligned syllabus', icon: <BookOpen size={28} />, color: 'from-green-500/20 to-green-600/10' },
+  { name: 'Modern Curriculum', desc: 'Nationally recognised, future-aligned syllabus', icon: <BookOpen size={28} />, color: 'from-green-500/20 to-green-600/10' },
   { name: 'GPS Transport', desc: 'Safe, tracked fleet covering all routes', icon: <Bus size={28} />, color: 'from-sky-500/20 to-sky-600/10' },
   { name: 'RO Water & Infirmary', desc: 'Pure water & on-campus medical care', icon: <Droplets size={28} />, color: 'from-cyan-500/20 to-cyan-600/10' },
   { name: 'Music & Dance Studio', desc: 'Professional-grade arts practice facilities', icon: <Music2 size={28} />, color: 'from-rose-500/20 to-rose-600/10' },
@@ -116,7 +116,7 @@ const WHY_DPSS = [
   {
     icon: <GraduationCap size={36} className="text-accent" />,
     title: 'Academic Excellence',
-    desc: 'CBSE board with experienced faculty, smart classrooms, digital labs and a proven track record of outstanding results.',
+    desc: 'Experienced faculty, smart classrooms, digital labs and a proven track record of outstanding results.',
   },
   {
     icon: <Trophy size={36} className="text-accent" />,
@@ -145,14 +145,13 @@ const BENTO_ITEMS = [
         <div>
           <p className="text-accent font-bold text-xs tracking-widest uppercase mb-3">Academic</p>
           <h3 className="font-serif text-3xl font-bold text-white leading-tight mb-4">
-            Top-Ranked<br />CBSE School
+            Top-Ranked<br />School
           </h3>
           <p className="text-white/65 text-sm leading-relaxed">
             Consistently achieving outstanding board results with a dedicated team of 30+ experienced educators.
           </p>
         </div>
         <div className="flex gap-3 mt-6">
-          <span className="px-3 py-1.5 bg-white/10 rounded-full text-white/80 text-xs font-semibold">CBSE Affiliated</span>
           <span className="px-3 py-1.5 bg-accent/20 rounded-full text-accent text-xs font-semibold">Est. 2022</span>
         </div>
       </div>
@@ -338,7 +337,7 @@ export default function Home() {
 
               <motion.p variants={fadeUp}
                 className="text-white/80 font-medium text-lg md:text-xl max-w-xl mb-10 leading-relaxed">
-                CBSE School in Siddipet focused on academic excellence, discipline, and all-round development. <br className="hidden md:block" />
+                School in Siddipet focused on academic excellence, discipline, and all-round development. <br className="hidden md:block" />
                 <span className="text-accent/90 font-bold">Limited seats available for the upcoming academic year.</span>
               </motion.p>
 
@@ -368,7 +367,7 @@ export default function Home() {
               {/* Trust Micro-signals */}
               <motion.div variants={fadeUp} className="flex flex-wrap gap-x-8 gap-y-3 border-t border-white/10 pt-8 mt-auto">
                 {[
-                  { label: "CBSE Affiliated", icon: <CheckCircle2 size={16} className="text-accent" /> },
+                  { label: "Premier Institution", icon: <CheckCircle2 size={16} className="text-accent" /> },
                   { label: "600+ Students", icon: <Users size={16} className="text-accent" /> },
                   { label: "Experienced Faculty", icon: <GraduationCap size={16} className="text-accent" /> },
                 ].map((item, i) => (
@@ -599,7 +598,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            {/* Floating badge: CBSE */}
+            {/* Floating badge: Institution */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8, x: 20 }}
               whileInView={{ opacity: 1, scale: 1, x: 0 }}
@@ -607,7 +606,7 @@ export default function Home() {
               viewport={{ once: true }}
               className="absolute -top-5 -right-5 bg-accent rounded-2xl shadow-xl px-5 py-3.5 flex items-center gap-2.5 z-10 hidden md:flex">
               <CheckCircle2 size={20} className="text-typography-dark shrink-0" />
-              <span className="font-bold text-typography-dark text-sm">CBSE Affiliated</span>
+              <span className="font-bold text-typography-dark text-sm">Premier Institution</span>
             </motion.div>
           </motion.div>
         </div>
@@ -776,7 +775,7 @@ export default function Home() {
             {[
               { 
                 title: "100% Pass Rate", 
-                desc: "All students successfully passed CBSE examinations with flying colors.", 
+                desc: "All students successfully passed examinations with flying colors.", 
                 icon: <CheckCircle2 className="text-green-600" size={32} />
               },
               { 

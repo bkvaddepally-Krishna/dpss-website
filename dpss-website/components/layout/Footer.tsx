@@ -60,7 +60,7 @@ export default function Footer() {
                   style={{ objectFit: 'contain', objectPosition: 'left' }} />
               </div>
               <p className="text-white/70 text-sm leading-relaxed max-w-xs">
-                Nurturing future leaders with a world-class CBSE education in the heart of Siddipet, Telangana.
+                Nurturing future leaders with a world-class education in the heart of Siddipet, Telangana.
               </p>
               <p className="text-accent text-sm font-semibold italic">&ldquo;{schoolInfo.tagline}&rdquo;</p>
               <SocialLinks />

@@ -33,8 +33,8 @@ export const metadata: Metadata = {
     icon: '/images/logo.png',
     apple: '/images/logo.png',
   },
-  description: 'Delhi Public Secondary School in Siddipet, Telangana. CBSE affiliated with 25+ world-class facilities. Admissions open for 2026-27. Nurturing the leaders of tomorrow.',
-  keywords: ['DPSS Siddipet', 'Best School in Siddipet', 'CBSE Schools Telangana', 'Delhi Public Secondary School', 'Siddipet Admission 2026', 'High School Siddipet'],
+  description: 'Delhi Public Secondary School in Siddipet, Telangana. Equipped with 25+ world-class facilities. Admissions open for 2026-27. Nurturing the leaders of tomorrow.',
+  keywords: ['DPSS Siddipet', 'Best School in Siddipet', 'Schools Telangana', 'Delhi Public Secondary School', 'Siddipet Admission 2026', 'High School Siddipet'],
   authors: [{ name: 'DPSS Siddipet' }],
   creator: 'DPSS Siddipet',
   publisher: 'Delhi Public Secondary School',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
     url: 'https://dpsssiddipet.com',
     siteName: 'DPSS Siddipet',
     title: 'Delhi Secondary School - Siddipet',
-    description: 'Premier CBSE education in Siddipet with international standards and 25+ world-class facilities.',
+    description: 'Premier education in Siddipet with international standards and 25+ world-class facilities.',
     images: [
       {
         url: '/images/logo.png',

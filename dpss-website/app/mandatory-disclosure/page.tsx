@@ -5,7 +5,7 @@ import { schoolInfo } from '@/lib/constants';
 
 export const metadata: Metadata = {
   title: 'Mandatory Public Disclosure',
-  description: 'Official information, affiliation details, and transparency disclosures for Delhi Public Secondary School, Siddipet.',
+  description: 'Official information and transparency disclosures for Delhi Public Secondary School, Siddipet.',
   robots: {
     index: false,
     follow: false,
@@ -56,8 +56,7 @@ export default function MandatoryDisclosurePage() {
           <InfoRow label="Principal Name & Qualification" value="[Principal Name], [Degrees]" />
           <InfoRow label="School Email ID" value={schoolInfo.email} />
           <InfoRow label="Contact Details" value={schoolInfo.phone} />
-          <InfoRow label="Affiliation Number" value="[Add Registration No.]" />
-          <InfoRow label="Affiliation Banner" value="CBSE (If Appicable/Pending)" />
+
         </div>
 
         {/* 3. GENERAL INFORMATION */}
@@ -82,7 +81,7 @@ export default function MandatoryDisclosurePage() {
         {/* 5. ACADEMIC INFORMATION */}
         <SectionHeader title="D. Academic Framework" />
         <div className="flex flex-col">
-          <InfoRow label="Curriculum" value="National Curriculum Framework / CBSE Guidelines" />
+          <InfoRow label="Curriculum" value="National Curriculum Framework" />
           <InfoRow label="Assessment System" value="Formative and Summative localized assessments with continuous tracking." />
           <InfoRow label="Academic Session Period" value="April to March" />
           <InfoRow label="Vacation Period" value="May to June (Summer) & October (Dussehra/Diwali)" />
@@ -103,7 +102,7 @@ export default function MandatoryDisclosurePage() {
         <SectionHeader title="F. Important Documents" />
         <div className="p-8 grid sm:grid-cols-3 gap-6 bg-white">
           {[
-            { label: "Affiliation/Trust Certificate", doc: "trust-certificate.pdf" },
+            { label: "Trust Certificate", doc: "trust-certificate.pdf" },
             { label: "School Prospectus", doc: "dpss-prospectus.pdf" },
             { label: "Fee Structure", doc: "fee-structure.pdf" }
           ].map((item, idx) => (

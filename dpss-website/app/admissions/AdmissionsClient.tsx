@@ -47,7 +47,7 @@ export default function AdmissionsClient() {
             </div>
             <div className="flex items-center gap-2 border border-gray-200 bg-white rounded-full px-4 py-2 shadow-sm">
                <CheckCircle2 size={16} className="text-accent" /> 
-               <span className="text-xs font-bold text-typography-dark uppercase tracking-widest">CBSE Affiliated</span>
+               <span className="text-xs font-bold text-typography-dark uppercase tracking-widest">Premier Institution</span>
             </div>
         </motion.div>
       </div>
@@ -62,7 +62,7 @@ export default function AdmissionsClient() {
              <h2 className="text-2xl font-serif font-bold text-typography-dark mb-6">Why Apply to DPSS?</h2>
              <ul className="space-y-4">
                {[
-                 { text: "Strong academic results with CBSE curriculum", icon: <BookOpen size={18}/> },
+                 { text: "Strong academic results with modern curriculum", icon: <BookOpen size={18}/> },
                  { text: "Safe and disciplined environment", icon: <ShieldCheck size={18}/> },
                  { text: "Focus on overall development (sports, arts, leadership)", icon: <GraduationCap size={18}/> },
                  { text: "Experienced faculty and modern classrooms", icon: <Users size={18}/> }

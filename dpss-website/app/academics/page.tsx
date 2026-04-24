@@ -3,7 +3,7 @@ import AcademicsClient from './AcademicsClient';
 
 export const metadata: Metadata = {
   title: 'Academics & Curriculum',
-  description: 'Explore the CBSE academic curriculum, digital infrastructure, and holistic learning approach at DPSS Siddipet.',
+  description: 'Explore the academic curriculum, digital infrastructure, and holistic learning approach at DPSS Siddipet.',
 };
 
 export default function AcademicsPage() {
