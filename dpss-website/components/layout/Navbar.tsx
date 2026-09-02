@@ -28,7 +28,7 @@ const navLinks = [
     ]
   },
   { name: 'Admissions', path: '/admissions' },
-  { name: 'Scholarship', path: '/scholarship' },
+  { name: 'Mandatory Disclosure', path: '/mandatory-disclosure' },
   { name: 'Gallery', path: '/gallery' },
   { name: 'Contact', path: '/contact' },
 ];

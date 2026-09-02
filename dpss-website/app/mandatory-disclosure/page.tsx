@@ -2,6 +2,7 @@ import React from 'react';
 import { Metadata } from 'next';
 import { Download } from 'lucide-react';
 import { schoolInfo } from '@/lib/constants';
+import MandatoryDocuments from '@/components/MandatoryDocuments';
 
 export const metadata: Metadata = {
   title: 'Mandatory Public Disclosure',
@@ -100,23 +101,7 @@ export default function MandatoryDisclosurePage() {
 
         {/* 7. DOCUMENTS / DOWNLOADS */}
         <SectionHeader title="F. Important Documents" />
-        <div className="p-8 grid sm:grid-cols-3 gap-6 bg-white">
-          {[
-            { label: "Trust Certificate", doc: "trust-certificate.pdf" },
-            { label: "School Prospectus", doc: "dpss-prospectus.pdf" },
-            { label: "Fee Structure", doc: "fee-structure.pdf" }
-          ].map((item, idx) => (
-            <div key={idx} className="border border-gray-200 rounded-xl p-6 flex flex-col items-center text-center justify-between hover:border-primary hover:shadow-md transition-all group">
-              <div className="mb-4 text-gray-400 group-hover:text-primary transition-colors">
-                <Download size={32} />
-              </div>
-              <h4 className="font-bold text-typography-dark mb-4 text-sm">{item.label}</h4>
-              <button disabled className="px-4 py-2 bg-gray-50 text-gray-400 rounded-lg text-xs font-bold border border-gray-100 cursor-not-allowed">
-                Upload Pending
-              </button>
-            </div>
-          ))}
-        </div>
+          <MandatoryDocuments />
 
         {/* 8. NOTE */}
         <div className="bg-gray-50 border-t border-gray-100 p-8 text-center">
