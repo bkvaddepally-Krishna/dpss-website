@@ -84,7 +84,7 @@ export default function ContactClient() {
             Contact Us
           </h1>
           <p className="text-typography-body font-medium">
-            Reach out to Delhi Public Secondary School today.
+            Reach out to Delhi Secondary School today.
           </p>
         </motion.div>
 

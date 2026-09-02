@@ -43,7 +43,7 @@ export default function Loading() {
           animate={{ opacity: [0.5, 1, 0.5] }}
           transition={{ duration: 1.5, repeat: Infinity }}
         >
-          Delhi Public Secondary School
+          Delhi Secondary School
         </motion.h2>
         <p className="text-sm text-typography-body font-medium tracking-[0.2em] uppercase opacity-60">
           Siddipet

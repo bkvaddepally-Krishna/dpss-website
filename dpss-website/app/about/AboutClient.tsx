@@ -79,7 +79,7 @@ export default function AboutClient() {
             </div>
 
             <motion.p variants={fadeUp} className="text-typography-body text-base leading-[1.8]">
-              Welcome to <strong className="text-typography-dark font-bold">Delhi Public Secondary School</strong>. 
+              Welcome to <strong className="text-typography-dark font-bold">Delhi Secondary School</strong>. 
               It is with great pride that I extend a warm greeting to you. As the Chairman, I am honored to lead 
               an institution deeply committed to nurturing the intellectual, emotional, and social growth of its 
               students. We strive to provide tools and guidance they need to excel in all areas of life.

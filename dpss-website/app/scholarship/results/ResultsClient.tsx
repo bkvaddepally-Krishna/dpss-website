@@ -110,7 +110,7 @@ export default function ResultsClient() {
     doc.setFontSize(8.5);
     doc.setTextColor(80, 80, 80);
     doc.setFont('helvetica', 'normal');
-    doc.text('A Unit of Delhi Public International School Organization — Siddipet Campus', 44, 34);
+    doc.text('A Unit of Delhi Secondary International School Organization — Siddipet Campus', 44, 34);
 
     doc.setDrawColor(0, 91, 65); doc.setLineWidth(0.6);
     doc.line(12, 48, 198, 48);

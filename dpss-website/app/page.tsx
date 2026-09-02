@@ -860,7 +860,7 @@ export default function Home() {
             </TiltCard>
             <div className="text-center">
               <p className="font-serif font-bold text-typography-dark text-xl">Principal</p>
-              <p className="text-typography-body text-sm">Delhi Public Secondary School, Siddipet</p>
+              <p className="text-typography-body text-sm">Delhi Secondary School, Siddipet</p>
             </div>
           </motion.div>
 

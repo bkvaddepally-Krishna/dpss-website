@@ -6,7 +6,7 @@ import MandatoryDocuments from '@/components/MandatoryDocuments';
 
 export const metadata: Metadata = {
   title: 'Mandatory Public Disclosure',
-  description: 'Official information and transparency disclosures for Delhi Public Secondary School, Siddipet.',
+  description: 'Official information and transparency disclosures for Delhi Secondary School, Siddipet.',
   robots: {
     index: false,
     follow: false,

@@ -1,5 +1,5 @@
 export const schoolInfo = {
-  name: "Delhi Public Secondary School",
+  name: "Delhi Secondary School",
   shortName: "DPSS",
   tagline: "Service for Society",
   location: "Siddipet, Telangana",

@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     icon: '/images/logo.png',
     apple: '/images/logo.png',
   },
-  description: 'Delhi Public Secondary School in Siddipet, Telangana. Equipped with 25+ world-class facilities. Admissions open for 2026-27. Nurturing the leaders of tomorrow.',
-  keywords: ['DPSS Siddipet', 'Best School in Siddipet', 'Schools Telangana', 'Delhi Public Secondary School', 'Siddipet Admission 2026', 'High School Siddipet'],
+  description: 'Delhi Secondary School in Siddipet, Telangana. Equipped with 25+ world-class facilities. Admissions open for 2026-27. Nurturing the leaders of tomorrow.',
+  keywords: ['DPSS Siddipet', 'Best School in Siddipet', 'Schools Telangana', 'Delhi Secondary School', 'Siddipet Admission 2026', 'High School Siddipet'],
   authors: [{ name: 'DPSS Siddipet' }],
   creator: 'DPSS Siddipet',
-  publisher: 'Delhi Public Secondary School',
+  publisher: 'Delhi Secondary School',
   robots: 'index, follow',
   openGraph: {
     type: 'website',
@@ -77,7 +77,7 @@ export default function RootLayout({
   const jsonLd = {
     '@context': 'https://schema.org',
     '@type': 'EducationalOrganization',
-    name: 'Delhi Public Secondary School, Siddipet',
+    name: 'Delhi Secondary School, Siddipet',
     address: {
       '@type': 'PostalAddress',
       streetAddress: 'Srinivasa Nagar Road, Near Police Hall',

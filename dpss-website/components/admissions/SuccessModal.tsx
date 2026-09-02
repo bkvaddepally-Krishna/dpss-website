@@ -17,7 +17,7 @@ export default function SuccessModal({ registrationId, email, onClose }: Success
   const [isGenerating, setIsGenerating] = React.useState(false);
   
   const handleShareWhatsApp = () => {
-    const text = `*Registration Successful!* \n\nI have successfully registered for admission at *Delhi Public Secondary School - Siddipet*. \n\n*Registration ID:* ${registrationId} \n*Website:* https://dpsssiddipet.com \n\n_Quality Education for a Brighter Future._`;
+    const text = `*Registration Successful!* \n\nI have successfully registered for admission at *Delhi Secondary School - Siddipet*. \n\n*Registration ID:* ${registrationId} \n*Website:* https://dpsssiddipet.com \n\n_Quality Education for a Brighter Future._`;
     window.open(`https://wa.me/?text=${encodeURIComponent(text)}`, '_blank');
   };
 
