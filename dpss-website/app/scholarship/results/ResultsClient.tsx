@@ -106,7 +106,7 @@ export default function ResultsClient() {
     doc.setTextColor(0, 91, 65);
     doc.setFont('helvetica', 'bold');
     doc.setFontSize(18);
-    doc.text('DELHI PUBLIC SECONDARY SCHOOL', 44, 27);
+    doc.text('DELHI SECONDARY SCHOOL', 44, 27);
     doc.setFontSize(8.5);
     doc.setTextColor(80, 80, 80);
     doc.setFont('helvetica', 'normal');

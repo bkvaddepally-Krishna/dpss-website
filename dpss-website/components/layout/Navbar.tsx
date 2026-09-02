@@ -79,7 +79,7 @@ export default function Navbar() {
               <span className={`font-serif text-lg md:text-xl font-black leading-tight tracking-tight transition-colors duration-300 ${
                 transparent ? 'text-white' : 'text-primary'
               }`} style={{ textShadow: transparent ? '0 2px 4px rgba(0,0,0,0.3)' : 'none' }}>
-                DELHI PUBLIC
+                DELHI
               </span>
               <span className={`font-sans text-[10px] md:text-xs font-bold tracking-[0.2em] uppercase transition-colors duration-300 ${
                 transparent ? 'text-accent' : 'text-typography-body'
