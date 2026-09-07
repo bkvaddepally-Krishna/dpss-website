@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 
 // Replace these with your actual 10-15 PDFs
 const DOCUMENTS = [
-  { id: 1, title: "Building & Sound Certificate", filename: "building&sound_certificate.pdf" },
+  { id: 1, title: "Building & Sound Certificate", filename: "sound_new.pdf" },
   { id: 2, title: "School Recognition", filename: "DELHI_RECOGNITION.pdf" },
   { id: 3, title: "School Management Committee (SMC)", filename: "SMC_NEW.pdf" },
   { id: 4, title: "Affidavit", filename: "DPS_CBSE_AFFIDAVIT.pdf" },
