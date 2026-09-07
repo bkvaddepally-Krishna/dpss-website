@@ -54,10 +54,9 @@ export default function MandatoryDisclosurePage() {
         <div className="flex flex-col">
           <InfoRow label="Name of the School" value={schoolInfo.name} />
           <InfoRow label="Complete Address" value={schoolInfo.address} />
-          <InfoRow label="Principal Name & Qualification" value="[Principal Name], [Degrees]" />
+          <InfoRow label="Principal Name & Qualification" value="[PLEASE SEND ME THE NAME & QUALIFICATION, YOU FORGOT TO PASTE IT!]" />
           <InfoRow label="School Email ID" value={schoolInfo.email} />
           <InfoRow label="Contact Details" value={schoolInfo.phone} />
-
         </div>
 
         {/* 3. GENERAL INFORMATION */}
@@ -66,41 +65,11 @@ export default function MandatoryDisclosurePage() {
           <InfoRow label="Year of Establishment" value="2022" />
           <InfoRow label="School Category / Type" value="Co-educational Day School" />
           <InfoRow label="Medium of Instruction" value="English" />
-          <InfoRow label="Classes Offered" value="Nursery to Grade X" />
+          <InfoRow label="Classes Offered" value="Nursery to Grade IX" />
         </div>
 
-        {/* 4. STAFF DETAILS */}
-        <SectionHeader title="C. Staff Information" />
-        <div className="flex flex-col">
-          <InfoRow label="Total Number of Teachers" value="[Number]" />
-          <InfoRow label="Teachers Qualification" value="All teaching staff are properly certified and qualified as per board norms." />
-          <InfoRow label="Student-Teacher Ratio" value="Optimal ratio maintained for individualized attention [e.g. 25:1]" />
-          <InfoRow label="Special Educators" value="Available / Associated" />
-          <InfoRow label="Counselors" value="Available for student well-being" />
-        </div>
-
-        {/* 5. ACADEMIC INFORMATION */}
-        <SectionHeader title="D. Academic Framework" />
-        <div className="flex flex-col">
-          <InfoRow label="Curriculum" value="National Curriculum Framework" />
-          <InfoRow label="Assessment System" value="Formative and Summative localized assessments with continuous tracking." />
-          <InfoRow label="Academic Session Period" value="April to March" />
-          <InfoRow label="Vacation Period" value="May to June (Summer) & October (Dussehra/Diwali)" />
-        </div>
-
-        {/* 6. INFRASTRUCTURE DETAILS */}
-        <SectionHeader title="E. Infrastructure Details" />
-        <div className="flex flex-col">
-          <InfoRow label="Total Campus Area" value="[Area in Sq. Mtrs/Acres]" />
-          <InfoRow label="Classrooms" value="Spacious, well-ventilated, digitally equipped Smart Classrooms." />
-          <InfoRow label="Laboratories" value="Dedicated units for composite Science and interactive Computer Learning." />
-          <InfoRow label="Library" value="Well-stocked central resource center with reading materials across genres." />
-          <InfoRow label="Transport Facility" value="Yes, GPS-enabled buses servicing routes across Siddipet." />
-          <InfoRow label="Safety & Security" value="24/7 CCTV surveillance, boundary coverage, trained security staff." />
-        </div>
-
-        {/* 7. DOCUMENTS / DOWNLOADS */}
-        <SectionHeader title="F. Important Documents" />
+        {/* 4. DOCUMENTS / DOWNLOADS */}
+        <SectionHeader title="C. Important Documents" />
           <MandatoryDocuments />
 
         {/* 8. NOTE */}
