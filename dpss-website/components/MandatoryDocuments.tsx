@@ -18,8 +18,6 @@ const DOCUMENTS = [
   { id: 10, title: "Process Document (DSS)", filename: "proces_dss.pdf" },
   { id: 11, title: "Parent Teacher Association (PTA)", filename: "PTA_NEW.pdf" },
   { id: 12, title: "Recognition Certificate", filename: "RECOGNITION_CERTIFICATE.pdf" },
-  { id: 13, title: "School Certificate", filename: "school_cer.pdf" },
-  { id: 14, title: "School Proceedings", filename: "school_proce.pdf" },
   { id: 15, title: "Society Registration", filename: "socity.pdf" },
   { id: 16, title: "Staff Details (2026-27)", filename: "STAFF LIST 2026-27.pdf" },
   { id: 17, title: "Water & Sanitation Certificate", filename: "water_cert.pdf" },
