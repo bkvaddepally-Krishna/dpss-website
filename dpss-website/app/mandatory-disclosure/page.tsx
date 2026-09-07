@@ -54,7 +54,7 @@ export default function MandatoryDisclosurePage() {
         <div className="flex flex-col">
           <InfoRow label="Name of the School" value={schoolInfo.name} />
           <InfoRow label="Complete Address" value={schoolInfo.address} />
-          <InfoRow label="Principal Name & Qualification" value="[PLEASE SEND ME THE NAME & QUALIFICATION, YOU FORGOT TO PASTE IT!]" />
+          <InfoRow label="Principal Name & Qualification" value="Garima Singh – M.A., B.Ed." />
           <InfoRow label="School Email ID" value={schoolInfo.email} />
           <InfoRow label="Contact Details" value={schoolInfo.phone} />
         </div>
