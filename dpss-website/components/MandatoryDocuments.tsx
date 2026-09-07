@@ -24,6 +24,7 @@ const DOCUMENTS = [
   { id: 16, title: "Staff Details (2026-27)", filename: "STAFF LIST 2026-27.pdf" },
   { id: 17, title: "Water & Sanitation Certificate", filename: "water_cert.pdf" },
   { id: 18, title: "Self Certificate", filename: "SELF CERTIFICATE_NEW.pdf" },
+  { id: 19, title: "Infrastructure Details", filename: "INFRASTRUCTURE_NEW.pdf" },
 ];
 
 export default function MandatoryDocuments() {
