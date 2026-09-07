@@ -469,56 +469,7 @@ export default function Home() {
       </section>
 
 
-      {/* ══════════════ SCHOLARSHIP HIGHLIGHT ══════════════ */}
-      <section className="bg-primary py-20 px-6 relative overflow-hidden">
-        {/* Subtle background glow */}
-        <div className="absolute inset-0 pointer-events-none opacity-10">
-          <div className="absolute top-0 right-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
-        </div>
-        
-        <div className="max-w-7xl mx-auto flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
-          <div className="max-w-2xl text-center lg:text-left">
-            <motion.span 
-              initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
-              className="inline-block px-4 py-1.5 bg-accent/20 text-accent font-bold text-xs tracking-widest uppercase rounded-full mb-6 border border-accent/30"
-            >
-              Admissions Open 2026
-            </motion.span>
-            <motion.h2 
-              initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
-              className="font-serif text-4xl md:text-5xl font-bold text-white mb-6"
-            >
-              Merit Scholarship Test 2026
-            </motion.h2>
-            <motion.p 
-              initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
-              className="text-white/80 text-lg font-medium leading-relaxed"
-            >
-              Secure up to 100% scholarship for meritorious students. <br className="hidden md:block" /> Limited seats available for the upcoming session.
-            </motion.p>
-          </div>
-          
-          <motion.div 
-            initial="hidden" whileInView="show" variants={fadeUp} viewport={viewport}
-            className="flex flex-col sm:flex-row gap-4 shrink-0"
-          >
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/scholarship"
-                className="block px-8 py-4 bg-accent text-typography-dark rounded-xl font-bold text-base hover:bg-yellow-300 transition-all shadow-lg text-center"
-              >
-                Register Now
-              </Link>
-            </motion.div>
-            <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Link href="/scholarship"
-                className="block px-8 py-4 border-2 border-white/30 text-white rounded-xl font-bold text-base hover:bg-white/10 transition-all text-center"
-              >
-                Get Hall Ticket
-              </Link>
-            </motion.div>
-          </motion.div>
-        </div>
-      </section>
+
 
 
       {/* ══════════════ WELCOME ══════════════ */}
