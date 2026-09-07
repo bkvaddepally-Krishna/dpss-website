@@ -69,7 +69,7 @@ export default function MandatoryDisclosurePage() {
         </div>
 
         {/* 4. DOCUMENTS / DOWNLOADS */}
-        <SectionHeader title="C. Important Documents" />
+        <SectionHeader title="Important Documents" />
           <MandatoryDocuments />
 
         {/* 8. NOTE */}
