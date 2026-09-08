@@ -268,18 +268,7 @@ export default function ContactClient() {
           </div>
         </div>
 
-        {/* Google Maps iFrame */}
-        <div className="w-full h-[450px] bg-gray-50 rounded-[2rem] overflow-hidden border border-gray-200 mb-20 lg:mb-32 shadow-sm">
-           <iframe 
-             src="https://maps.google.com/maps?q=Delhi%20Public%20Secondary%20School%2C%20Siddipet%2C%20Telangana&t=m&z=15&output=embed&iwloc=near" 
-             width="100%" 
-             height="100%" 
-             style={{ border: 0 }} 
-             allowFullScreen 
-             loading="lazy" 
-             referrerPolicy="no-referrer-when-downgrade"
-           />
-        </div>
+
 
         {/* FAQ Section */}
         <div className="max-w-3xl mx-auto mb-20 text-center">

@@ -80,10 +80,9 @@ export default function RootLayout({
     name: 'Delhi Secondary School, Siddipet',
     address: {
       '@type': 'PostalAddress',
-      streetAddress: 'Srinivasa Nagar Road, Near Police Hall',
+      streetAddress: 'Backside of R & B and Huj Bhavan, Block office x road to Ensanpally x road',
       addressLocality: 'Siddipet',
       addressRegion: 'Telangana',
-      postalCode: '502103',
       addressCountry: 'IN'
     },
     telephone: schoolInfo.phone,

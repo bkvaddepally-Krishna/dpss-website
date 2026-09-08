@@ -5,7 +5,7 @@ export const schoolInfo = {
   location: "Siddipet, Telangana",
   phone: "+91 7660999981",
   email: "dpsssiddipet@gmail.com",
-  address: "Srinivasa Nagar Road, Near Police Hall, Siddipet, Telangana 502103",
+  address: "Backside of R & B and Huj Bhavan, Block office x road to Ensanpally x road, Siddipet",
   colors: {
     primary: "#0d6f3b",
     secondary: "#1a9e55",
