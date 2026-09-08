@@ -11,7 +11,7 @@ const DOCUMENTS = [
   { id: 3, title: "School Management Committee (SMC)", filename: "SMC_NEW.pdf" },
   { id: 4, title: "Affidavit", filename: "DPS_CBSE_AFFIDAVIT.pdf" },
   { id: 5, title: "Fees Structure", filename: "FEE PARTICULARS_NEW.pdf" },
-  { id: 6, title: "Fire Safety Certificate", filename: "FIRE_SAFETY_CERTIFICATE.pdf" },
+  { id: 6, title: "Fire Safety Certificate", filename: "Fire_New.pdf" },
   { id: 7, title: "Land Certificate", filename: "LAND_NEW.pdf" },
   { id: 8, title: "Mandatory Disclosure", filename: "MANDATORY  DISCLOUSRE_NEW.pdf" },
   { id: 9, title: "No Objection Certificate (NOC)", filename: "noc_mcs.pdf" },
