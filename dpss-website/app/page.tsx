@@ -473,11 +473,11 @@ export default function Home() {
 
 
       {/* ══════════════ WELCOME ══════════════ */}
-      <section className="bg-white py-28 px-6 overflow-hidden">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-5 gap-16 items-center">
+      <section className="bg-white py-28 px-6 overflow-hidden text-center">
+        <div className="max-w-4xl mx-auto flex flex-col items-center space-y-8">
 
-          {/* Left */}
-          <motion.div className="lg:col-span-3 space-y-8"
+          {/* Content */}
+          <motion.div className="space-y-8 flex flex-col items-center"
             initial="hidden" whileInView="show" variants={staggerContainer} viewport={viewport}>
 
             <motion.p variants={fadeUp} className="text-xs font-bold tracking-[0.25em] text-accent uppercase">
@@ -490,13 +490,13 @@ export default function Home() {
               <span className="text-accent underline decoration-accent/30 underline-offset-8">Begins</span>
             </motion.h2>
 
-            <motion.p variants={fadeUp} className="text-typography-body text-lg leading-[1.9] max-w-xl">
+            <motion.p variants={fadeUp} className="text-typography-body text-lg leading-[1.9] max-w-2xl mx-auto">
               Established in 2022, DPSS has quickly become more than just a school — a living, breathing
               community where curiosity is rewarded, character is shaped, and every child is
               empowered to dream bigger.
             </motion.p>
 
-            <motion.div variants={fadeUp} className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm font-bold text-typography-dark">
+            <motion.div variants={fadeUp} className="flex flex-wrap justify-center items-center gap-x-6 gap-y-2 text-sm font-bold text-typography-dark">
               {['3+ Years', '600+ Alumni', '25+ Facilities'].map((s, i, arr) => (
                 <React.Fragment key={s}>
                   <motion.span
@@ -508,7 +508,7 @@ export default function Home() {
               ))}
             </motion.div>
 
-            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row gap-4 pt-4">
+            <motion.div variants={fadeUp} className="flex flex-col sm:flex-row justify-center gap-4 pt-4">
               <motion.div whileHover={{ scale: 1.04, y: -2 }} whileTap={{ scale: 0.97 }}>
                   <Link href="/about"
                   className="block px-7 py-3.5 border-2 border-primary text-primary rounded-xl font-bold hover:bg-primary hover:text-white transition-all duration-300 text-center">
@@ -521,43 +521,6 @@ export default function Home() {
                   View Facilities
                 </Link>
               </motion.div>
-            </motion.div>
-          </motion.div>
-
-          {/* Right image with tilt */}
-          <motion.div className="lg:col-span-2 relative"
-            initial="hidden" whileInView="show" variants={fadeRight} viewport={viewport}>
-            <TiltCard className="relative rounded-3xl overflow-hidden shadow-2xl aspect-[3/4]">
-              <Image src="/images/school.png" alt="DPSS School Building" fill
-                style={{ objectFit: 'cover' }}
-                className="hover:scale-105 transition-transform duration-700" />
-              {/* Gradient overlay on image */}
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/40 via-transparent to-transparent" />
-            </TiltCard>
-
-            {/* Floating badge: 5+ Years */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, x: -20 }}
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ delay: 0.5, type: 'spring', stiffness: 200 }}
-              viewport={{ once: true }}
-              className="absolute -bottom-6 -left-6 bg-white rounded-2xl shadow-xl px-6 py-4 flex items-center gap-3 border border-gray-100 z-10 hidden md:flex">
-              <div className="w-12 h-12 rounded-xl bg-primary flex items-center justify-center text-white font-bold text-lg shrink-0">3+</div>
-              <div>
-                <div className="text-xs text-typography-body">Years of</div>
-                <div className="font-bold text-typography-dark">Excellence</div>
-              </div>
-            </motion.div>
-
-            {/* Floating badge: Institution */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8, x: 20 }}
-              whileInView={{ opacity: 1, scale: 1, x: 0 }}
-              transition={{ delay: 0.65, type: 'spring', stiffness: 200 }}
-              viewport={{ once: true }}
-              className="absolute -top-5 -right-5 bg-accent rounded-2xl shadow-xl px-5 py-3.5 flex items-center gap-2.5 z-10 hidden md:flex">
-              <CheckCircle2 size={20} className="text-typography-dark shrink-0" />
-              <span className="font-bold text-typography-dark text-sm">Premier Institution</span>
             </motion.div>
           </motion.div>
         </div>
